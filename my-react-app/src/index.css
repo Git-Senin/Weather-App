@@ -1,0 +1,19 @@
+*{
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.weatherCard {
+
+    padding: 20px;
+    background-image: linear-gradient(to left top, hsl(69, 100%, 84%), hsl(228, 100%, 75%));
+    
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (width > 40em) {
+    .weatherCard {
+        grid-template-columns: 1fr 2fr;
+    }
+}

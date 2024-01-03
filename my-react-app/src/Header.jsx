@@ -1,7 +1,7 @@
 function Header() {
     return(
         <header>
-            <h1>Yo</h1>
+            <h1>Weather</h1>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
