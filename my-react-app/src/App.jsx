@@ -1,12 +1,12 @@
-import Header from "./Header.jsx"
-import Footer from "./Footer.jsx"
-import Weather from "./Weather.jsx"
+import Header from "./components/Header/Header.jsx"
+import Footer from "./components/Footer/Footer.jsx"
+import Weather from "./components/Weather/Weather.jsx"
 
-function App() {
+const App = () => {
   return(
     <>
       <Header />
-      <Weather />
+      <Weather location="Sacramento" rain={30} day={50} night={35}/>
       <Footer />
     </>
   )
