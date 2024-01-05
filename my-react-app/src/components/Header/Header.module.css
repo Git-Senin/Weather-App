@@ -1,0 +1,6 @@
+.Header {
+    display: flex;
+    justify-content: center;
+
+    color: hsl(0, 0%, 68%);
+}

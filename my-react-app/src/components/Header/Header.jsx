@@ -1,16 +1,11 @@
+import styles from "./Header.module.css"
+
 const Header = () => {
     return(
-        <header>
-            <h1>Weather</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <hr />
+        <header className={styles.Header }>
+            <h1>
+                The Weather in <span><input type="text" placeholder="Location..." /></span> is,
+            </h1>
         </header>
     )
 }

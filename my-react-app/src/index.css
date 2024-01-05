@@ -1,8 +1,8 @@
-html, body {
-    min-width: 100px;
-    width: 120em;
-    margin: 0 auto;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: hsl(198, 100%, 97%);
+html {
+    font-family: 'Open Sans', sans-serif;
 }
 
+body {
+    min-width: 100px;
+    margin: 0 auto;
+}
