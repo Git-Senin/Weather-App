@@ -1,8 +1,6 @@
-html {
+html, body{
     font-family: 'Open Sans', sans-serif;
-}
-
-body {
+    background-color: hsl(0, 0%, 42%);
     min-width: 100px;
-    margin: 0 auto;
+    margin: 0;
 }
