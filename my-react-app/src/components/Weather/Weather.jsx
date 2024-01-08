@@ -1,4 +1,4 @@
-import styles from "./Weather.module.css"
+import styles from "./Weather.module.scss"
 import PropTypes from "prop-types"
 
 const Weather = (props) => {
