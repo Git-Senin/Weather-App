@@ -6,16 +6,18 @@
 
     display: grid;
     gap: 1em;
-}
-.Weather .Weather__img {
-    justify-self: center;
+
+    &__img {
+        justify-self: center;
+    }
 }
 
 @media (width > 40em) {
     .Weather {
         grid-template-columns: 1fr 1fr;
-    }
-    .Weather .Weather__img {
-        grid-row: span 2;
+
+        &__img {
+            grid-row: span 2;
+        }
     }
 }

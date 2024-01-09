@@ -1,6 +1,6 @@
 import styles from "./Footer.module.scss"
 
-const Footer = () => {
+function Footer() {
     return(
         <footer className={styles.Footer}>
             <p>&copy; {new Date().getFullYear()} Weather</p>

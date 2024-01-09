@@ -6,19 +6,20 @@
 
     text-align: center;
     color: hsl(0, 0%, 36%);
-}
-
-.Header__input {
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid hsl(50, 20%, 56%);
     
-    font: inherit;
-    text-align: center;
-    color: hsl(0, 0%, 0%);
+    &__input {
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid hsl(50, 20%, 56%);
     
-    background-color: hsla(0, 0%, 100%, 0);
-    width: 200px;
+        font: inherit;
+        text-align: center;
+        color: hsl(0, 0%, 0%);
+    
+        background-color: hsla(0, 0%, 100%, 0);
+        width: 200px;
+    }
+    
 }
