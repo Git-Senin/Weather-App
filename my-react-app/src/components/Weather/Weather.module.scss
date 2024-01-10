@@ -1,5 +1,5 @@
 .Weather {
-    padding: 20px;
+    padding: 5em;
 
     background-image: linear-gradient(to left top, hsl(69, 100%, 82%), hsl(179, 100%, 63%));
     color: hsl(0, 0%, 18%);
@@ -9,6 +9,11 @@
 
     &__img {
         justify-self: center;
+        transition: 500ms;
+        
+        &:hover {
+            transform: rotate(-3deg) scale(1.05);
+        }
     }
 }
 

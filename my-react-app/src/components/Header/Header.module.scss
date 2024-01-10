@@ -1,8 +1,8 @@
 .Header {
+    padding: 5em;
+    background-color: hsl(77, 100%, 97%);
     display: flex;
     justify-content: center;
-
-    background-color: hsl(77, 100%, 97%);
 
     text-align: center;
     color: hsl(0, 0%, 36%);
@@ -10,16 +10,22 @@
     &__input {
         margin: 0;
         padding: 0;
+        width: 200px;
         border: none;
         outline: none;
+        background-color: hsla(0, 0%, 100%, 0);
         border-bottom: 2px solid hsl(50, 20%, 56%);
-    
+        border-radius: 0.5em 0.5em 0 0;
+
         font: inherit;
         text-align: center;
-        color: hsl(0, 0%, 0%);
-    
-        background-color: hsla(0, 0%, 100%, 0);
-        width: 200px;
+        color: hsla(0, 0%, 0%, 0);
+        transition: ease-in-out 300ms;
+        
+        &:focus,
+        &:hover{
+            background-color: hsla(0, 0%, 1%, 0.1);
+        }
     }
     
 }
