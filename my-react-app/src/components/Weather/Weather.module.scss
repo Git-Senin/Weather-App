@@ -1,18 +1,24 @@
 .Weather {
-    padding: 5em;
-
+    padding: 4em 0;
     background-image: linear-gradient(to left top, hsl(69, 100%, 82%), hsl(179, 100%, 63%));
     color: hsl(0, 0%, 18%);
-
     display: grid;
     gap: 1em;
 
     &__img {
         justify-self: center;
+
         transition: 500ms;
-        
         &:hover {
             transform: rotate(-3deg) scale(1.05);
+        }
+    }
+
+    &__location,
+    &__report {
+        padding: 0 10%;
+        &:hover{
+            color: hsl(202, 100%, 50%);
         }
     }
 }
@@ -20,7 +26,7 @@
 @media (width > 40em) {
     .Weather {
         grid-template-columns: 1fr 1fr;
-
+    
         &__img {
             grid-row: span 2;
         }

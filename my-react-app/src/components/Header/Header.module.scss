@@ -1,5 +1,5 @@
 .Header {
-    padding: 5em;
+    padding: 5em 0;
     background-color: hsl(77, 100%, 97%);
     display: flex;
     justify-content: center;
@@ -22,9 +22,14 @@
         color: hsla(0, 0%, 0%, 0);
         transition: ease-in-out 300ms;
         
+
         &:focus,
         &:hover{
             background-color: hsla(0, 0%, 1%, 0.1);
+        }
+
+        &::after{
+            content: "yo";
         }
     }
     

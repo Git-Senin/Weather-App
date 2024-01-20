@@ -8,7 +8,7 @@ const App = () => {
     <>
       <div className="wrapper">
         <Header />
-        <Weather location="Sacramento" rain={30} day={50} night={35}/>
+        <Weather location="my-location" rain={30} day={50} night={35}/>
         <Footer />
       </div>
     </>
