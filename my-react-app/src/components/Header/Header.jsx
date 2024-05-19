@@ -1,13 +1,14 @@
 import styles from "./Header.module.scss"
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 function Header() {
 
-    const [location, setLocation] = useState("location");
+    const [location, setLocation] = useState("");
+    const inputRef = useRef(null);
     
-    function handleLocationChange(e) {
-        setLocation(e.target.value);
-    }
+    useEffect(() => {
+        inputRef.current.style.width = `${200 + (inputRef.current.value.length*20)}px`
+    }, [location])
 
     return(
         <header className={styles.Header}>
@@ -15,9 +16,10 @@ function Header() {
                 The Weather in 
                 <input 
                     className={styles.Header__input} 
-                    onChange={handleLocationChange}
+                    onChange={e => setLocation(e.target.value)}
+                    ref={inputRef}
                 />
-                 is... <span>{location || "location"}</span>
+                 is <span>{location || "sunny"}</span>
             </h1>
         </header>
     )
