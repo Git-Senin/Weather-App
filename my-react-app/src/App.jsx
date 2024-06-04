@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { LocationProvider, useLocation } from "./LocationContext.jsx"
+import { useLocation } from "./hooks/LocationContext.jsx"
 import Header from "./components/Header/Header.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import Weather from "./components/Weather/Weather.jsx"
@@ -11,18 +11,20 @@ export default function App() {
   const [cityData, setCityData] = useState({});
 
   useEffect(()=>{
-    console.log(`Fetching location of ${city}`)
-
-    const fetchData = async () => {
-      try {
-        const data = await fetchCityData(city)
-        setCityData(data);
-      } catch (error) {
-        console.error("Error fetching city data:", error)
+    if(city !== null) {
+      const fetchData = async () => {
+        try {
+          const data = await fetchCityData(city)
+          setCityData(data);
+        } catch (error) {
+          console.error("Error fetching city data:", error)
+        }
       }
+      
+      fetchData();
+    }else{
+      setCityData({});
     }
-    
-    fetchData();
   }, [city])
 
   return(

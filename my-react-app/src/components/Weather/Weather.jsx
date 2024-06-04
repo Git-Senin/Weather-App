@@ -1,5 +1,4 @@
 import styles from "./Weather.module.scss"
-import PropTypes from "prop-types"
 
 export default function Weather(prop) {
 
@@ -10,7 +9,4 @@ export default function Weather(prop) {
             <p className={styles.Weather__report}>Rain ° • Day ° • Night °</p>
         </section>
     );
-}
-Weather.propTypes = {
-    
 }

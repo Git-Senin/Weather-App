@@ -1,20 +1,20 @@
 import { useEffect, useRef, useState} from "react";
-import { LocationProvider, useLocationUpdate } from "../../LocationContext";
+import { useLocationUpdate } from "../../hooks/LocationContext";
 import styles from "./Header.module.scss"
 import citiesJson from '../../cities-json/cities500.json';
 
 export default function Header(prop) {
     const updateLocation = useLocationUpdate();
     const citiesData = citiesJson;
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState("Los Angeles");
     const inputRef = useRef(null);
 
     const isValidLocation = (input) => {
-        console.log(input);
         // If valid set location
         if(citiesData.some((city) => city.name === input)){
-            console.log(`New Location ${input}`)
             updateLocation(input);
+        } else {
+            updateLocation(null)
         }
     }
 

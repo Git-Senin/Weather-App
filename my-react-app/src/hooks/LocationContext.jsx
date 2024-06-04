@@ -15,9 +15,7 @@ export function LocationProvider({children}){
     const [location, setLocation] = useState("Los Angeles");
 
     function changeLocation(newLocation) {
-        console.log(`Changing Location to ${newLocation}`)
         setLocation(newLocation);
-        console.log(`Location is set to ${location}`)
     }
 
     return (
