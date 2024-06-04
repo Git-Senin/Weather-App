@@ -11,7 +11,7 @@ export default function Header(prop) {
 
     const isValidLocation = (input) => {
         // If valid set location
-        if(citiesData.some((city) => city.name === input)){
+        if(citiesData.some((city) => city.name.toLowerCase() === input.toLowerCase())){
             updateLocation(input);
         } else {
             updateLocation(null)
@@ -19,8 +19,8 @@ export default function Header(prop) {
     }
 
     useEffect(() => {
-        // Set input 
-        inputRef.current.style.width = `${200 + (inputRef.current.value.length*20)}px`
+        // Set input size
+        inputRef.current.style.width = `${25 + (inputRef.current.value.length*25)}px`
     }, [input])
 
     return(
@@ -31,12 +31,13 @@ export default function Header(prop) {
                     id="city-input"
                     value={input}
                     className={styles.Header__input}
+                    ref={inputRef}
+
                     onChange={e => {
                             setInput(e.target.value)
                             isValidLocation(e.target.value)
                         }
                     }
-                    ref={inputRef}
                 />
                  is <span>{prop.data?.main?.temp || " . . ."}</span>
             </h1>
