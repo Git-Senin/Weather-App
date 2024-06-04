@@ -1,18 +1,35 @@
+import { useState, useEffect } from "react";
+import { LocationProvider, useLocation } from "./LocationContext.jsx"
 import Header from "./components/Header/Header.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import Weather from "./components/Weather/Weather.jsx"
+import fetchCityData from "./WeatherAPI.jsx"
 import "./index.scss"
 
-const App = () => {
-  return(
-    <>
-      <div className="wrapper">
-        <Header />
-        <Weather location="my-location" rain={30} day={50} night={35}/>
-        <Footer />
-      </div>
-    </>
-  )
-}
+export default function App() {
+  const city = useLocation();
+  const [cityData, setCityData] = useState({});
 
-export default App
+  useEffect(()=>{
+    console.log(`Fetching location of ${city}`)
+
+    const fetchData = async () => {
+      try {
+        const data = await fetchCityData(city)
+        setCityData(data);
+      } catch (error) {
+        console.error("Error fetching city data:", error)
+      }
+    }
+    
+    fetchData();
+  }, [city])
+
+  return(
+    <div className="wrapper">
+      <Header data={cityData}/>
+      <Weather data={cityData}/>
+      <Footer />
+    </div>
+  )  
+}
