@@ -1,5 +1,7 @@
 .Footer {
     background-color: hsl(214, 33%, 73%);
     padding: 5em 1em;
-    display: grid;
+    justify-content: center;
+    display: flex;
+    gap: 50px;
 }

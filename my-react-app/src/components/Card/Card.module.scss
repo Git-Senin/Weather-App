@@ -1,3 +1,7 @@
-.card{
+.Card{
     margin: 10px;
+
+    &__img {
+        max-height: 30px;
+    }
 }
