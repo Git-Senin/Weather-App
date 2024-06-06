@@ -2,6 +2,7 @@ import { useEffect, useRef, useState} from "react";
 import { useLocationUpdate } from "../../hooks/LocationContext";
 import styles from "./Header.module.scss"
 import citiesJson from '../../cities-json/cities500.json';
+import { KelvinToCelsius } from "../../util/Temperature";
 
 export default function Header(prop) {
     const updateLocation = useLocationUpdate();
@@ -26,7 +27,7 @@ export default function Header(prop) {
     return(
         <header className={styles.Header}>
             <h1>
-                The Weather in 
+                The Temperature in 
                 <input 
                     id="city-input"
                     value={input}
