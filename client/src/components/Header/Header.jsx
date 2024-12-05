@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState} from "react";
-import { useLocationUpdate } from "../../hooks/LocationContext";
-import Temperature from '../../util/Temperature.jsx';
+import getCityData from "../../api/getCity.jsx";
 import styles from "./Header.module.scss"
 
-export default function Header(prop) {
-    const updateLocation = useLocationUpdate();
+export default function Header() {
     const [input, setInput] = useState("Los Angeles");
     const inputRef = useRef(null);
-    const temp = new Temperature(prop.data?.main?.temp).kelvinToFahrenheit().formatTemperature(); 
+    const [cityData, setCityData] = useState(null);
+    let temp = null;
 
     useEffect(() => {
         // Set input size
         inputRef.current.style.width = `${25 + (inputRef.current.value.length*25)}px`;
+        // Api fetch
+        setCityData(getCityData(input));
+        console.log(cityData);
     }, [input])
 
     return(
