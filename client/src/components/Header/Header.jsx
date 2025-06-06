@@ -1,19 +1,31 @@
 import { useEffect, useRef, useState} from "react";
-import getCityData from "../../api/getCity.jsx";
 import styles from "./Header.module.scss"
 
 export default function Header() {
     const [input, setInput] = useState("Los Angeles");
     const inputRef = useRef(null);
     const [cityData, setCityData] = useState(null);
-    let temp = null;
-
+    // Api fetch
+    const fetchCityData = async (city) => {
+        try {
+            const response = await fetch(`/api/${city}`);
+            if (!response.ok) {
+                throw new Error("Failed to fetch city data");
+            }
+            const data = await response.json();
+            setCityData(data);
+        } catch (error) {
+            console.error("Error fetching city data:", error);
+            setCityData(null);
+        }
+    };
+    
     useEffect(() => {
         // Set input size
-        inputRef.current.style.width = `${25 + (inputRef.current.value.length*25)}px`;
-        // Api fetch
-        setCityData(getCityData(input));
-        console.log(cityData);
+        
+        inputRef.current.style.width = `${25 + inputRef.current.value.length * 10}px`;
+        
+        fetchCityData(input);
     }, [input])
 
     return(
@@ -30,7 +42,7 @@ export default function Header() {
                         }
                     }
                 />
-                 is <span>{temp || " . . ."}</span>
+                 is <span>{cityData ? cityData.data :" . . ."}</span>
             </h1>
         </header>
     )
