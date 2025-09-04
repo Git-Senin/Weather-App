@@ -18,26 +18,19 @@ app.get("/api/:city", (req, res) => {
         return res.status(500).json({ error: "Internal server error" });
     }
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            if (data && data.main && data.main.temp) {
-                const temperature = (data.main.temp - 273.15).toFixed(2); // Convert Kelvin to Celsius
-                res.json({ data: `${temperature} °C` });
-            } else {
-                res.status(404).json({ error: "City not found" });
-            }
+            res.json(data);
+            console.log("Weather data fetched successfully:", data);
         })
         .catch(error => {
-            console.error("Error fetching city data:", error);
+            console.error("Error fetching weather data:", error);
             res.status(500).json({ error: "Internal server error" });
         });
+})
 
+app.listen(port, () => {
+    console.log("Loaded API Key:", process.env.WEATHER_API_KEY);
+    console.log(`Server started on port ${port}`);
 });
-
-app.listen(port, () => {console.log(`Server started on port ${port}`);});
 
