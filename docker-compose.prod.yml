@@ -18,4 +18,4 @@ services:
       dockerfile: dockerfile.server
       target: production
     env_file:
-      - ./server/.env
+      - ./.env
