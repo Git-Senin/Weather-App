@@ -15,7 +15,5 @@ services:
       context: ./server
       dockerfile: dockerfile.server
       target: production
-    env_file:
-      - ./.env
     environment:
       - WEATHER_API_KEY=${WEATHER_API_KEY}
